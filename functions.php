@@ -32,3 +32,5 @@ function fse_tailwind_theme_scripts() {
     wp_enqueue_style( 'fse-tailwind-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'fse_tailwind_theme_scripts' );
+
+require_once 'includes/customizer.php';

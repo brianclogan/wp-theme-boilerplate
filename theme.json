@@ -1,6 +1,38 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 2,
   "settings": {
+    "typography": {
+      "fontSizes": [
+        {
+          "slug": "normal",
+          "size": "20px",
+          "name": "normal"
+        },
+        {
+          "slug": "extra-small",
+          "size": "16px",
+          "name": "Extra small"
+        },
+        {
+          "slug": "large",
+          "size": "24px",
+          "name": "Large"
+        }
+      ],
+      "fontFamilies": [
+        {
+          "fontFamily": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+          "slug": "system-fonts",
+          "name": "System fonts"
+        },
+        {
+          "fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
+          "slug": "helvetica-arial",
+          "name": "Helvetica or Arial"
+        }
+      ]
+    },
     "layout": {
       "contentSize": "840px",
       "wideSize": "1100px"
@@ -49,25 +81,6 @@
           ]
         }
       }
-    },
-    "typograhy": {
-      "fontSizes": [
-        {
-          "slug": "normal",
-          "size": "20px",
-          "name": "normal"
-        },
-        {
-          "slug": "extra-small",
-          "size": "16px",
-          "name": "Extra small"
-        },
-        {
-          "slug": "large",
-          "size": "24px",
-          "name": "Large"
-        }
-      ]
     },
     "spacing": {
       "customPadding": true,
