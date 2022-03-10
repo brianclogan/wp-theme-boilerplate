@@ -37,7 +37,7 @@ function fse_tailwind_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'fse_tailwind_theme_scripts' );
 
 require_once 'includes/customizer.php';
-
+require_once 'includes/Updater.php';
 add_action( 'after_setup_theme', function() {
     new Updater(
         [
