@@ -1,4 +1,7 @@
 <?php
+
+use WPThemeBoilerplate\Includes\Updater;
+
 if ( ! function_exists( 'fse_tailwind_theme_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -34,3 +37,15 @@ function fse_tailwind_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'fse_tailwind_theme_scripts' );
 
 require_once 'includes/customizer.php';
+
+add_action( 'after_setup_theme', function() {
+    new Updater(
+        [
+            'name' => 'WP Theme Boilerplate',
+            'repo' => 'brianclogan/wp-theme-boilerplate',
+            'slug' => 'wp-theme-boilerplate',
+            'url'  => 'https://brianclogan.com',
+            'ver'  => 0.2,
+        ]
+    );
+});
