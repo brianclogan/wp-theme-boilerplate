@@ -45,7 +45,7 @@ add_action( 'after_setup_theme', function() {
             'repo' => 'brianclogan/wp-theme-boilerplate',
             'slug' => 'wp-theme-boilerplate',
             'url'  => 'https://brianclogan.com',
-            'ver'  => 0.2,
+            'ver'  => 0.2.1,
         ]
     );
 });
