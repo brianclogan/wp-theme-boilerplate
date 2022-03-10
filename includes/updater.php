@@ -1,13 +1,4 @@
-<?php // phpcs:disable WordPress.Files.FileName
-/**
- * Gridd Theme Updater.
- *
- * @package Gridd
- * @since 1.0
- */
-
-namespace WPThemeBoilerplate\Includes;
-
+<?php
 /**
  * Updater class.
  *
@@ -192,3 +183,11 @@ class Updater {
         return $transient;
     }
 }
+
+new Updater([
+    'name' => WP_THEME_BOILERPLATE_NAME,
+    'repo' => WP_THEME_BOILERPLATE_GITHUB_REPO,
+    'slug' => WP_THEME_BOILERPLATE_SLUG,
+    'url'  => 'https://brianclogan.com',
+    'ver'  => WP_THEME_BOILERPLATE_VERSION,
+]);
