@@ -95,10 +95,10 @@ class Updater {
      */
     private function get_response() {
         // Check transient.
-//        $cache = get_site_transient( md5( $this->get_releases_url() ) );
-//        if ( $cache ) {
-//            return $cache;
-//        }
+        $cache = get_site_transient( md5( $this->get_releases_url() ) );
+        if ( $cache ) {
+            return $cache;
+        }
         $response = wp_remote_get( $this->get_releases_url() );
         if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
             $response = json_decode( wp_remote_retrieve_body( $response ), true );
@@ -117,13 +117,13 @@ class Updater {
         if ( ! $this->response ) {
             return;
         }
-        return $this->response[0]['zipball_url'];
+//        return $this->response[0]['zipball_url'];
 //        dd($this->response);
-//        foreach ( $this->response as $release ) {
-//            if ( isset( $release['assets'] ) && isset( $release['assets'][0] ) && isset( $release['assets'][0]['browser_download_url'] ) ) {
-//                return $release['assets'][0]['browser_download_url'];
-//            }
-//        }
+        foreach ( $this->response as $release ) {
+            if ( isset( $release['assets'] ) && isset( $release['assets'][0] ) && isset( $release['assets'][0]['browser_download_url'] ) ) {
+                return $release['assets'][0]['browser_download_url'];
+            }
+        }
     }
 
     /**
