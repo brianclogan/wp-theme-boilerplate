@@ -40,4 +40,4 @@ add_action( 'after_setup_theme', function() {
         'ver'  => WP_THEME_BOILERPLATE_VERSION,
     ];
     new Updater($data);
-});
+}); 
