@@ -67,6 +67,7 @@ class Updater {
         $this->url  = $args['url'];
 
         $this->response = $this->get_response();
+
         // Check for theme updates.
         add_filter( 'http_request_args', [ $this, 'update_check' ], 5, 2 );
         // Inject theme updates into the response array.
@@ -101,7 +102,7 @@ class Updater {
         $response = wp_remote_get( $this->get_releases_url() );
         if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
             $response = json_decode( wp_remote_retrieve_body( $response ), true );
-            set_site_transient( md5( $this->get_releases_url() ), $response, 12 * HOUR_IN_SECONDS );
+            set_site_transient( md5( $this->get_releases_url() ), $response, 2 * HOUR_IN_SECONDS );
         }
     }
 
@@ -116,6 +117,8 @@ class Updater {
         if ( ! $this->response ) {
             return;
         }
+//        return $this->response[0]['zipball_url'];
+//        dd($this->response);
         foreach ( $this->response as $release ) {
             if ( isset( $release['assets'] ) && isset( $release['assets'][0] ) && isset( $release['assets'][0]['browser_download_url'] ) ) {
                 return $release['assets'][0]['browser_download_url'];
@@ -134,11 +137,12 @@ class Updater {
         if ( ! $this->response ) {
             return;
         }
-        foreach ( $this->response as $release ) {
-            if ( isset( $release['tag_name'] ) ) {
-                return str_replace( 'v', '', $release['tag_name'] );
-            }
-        }
+        return str_replace( 'v', '', $this->response[0]['tag_name'] );
+//        foreach ( $this->response as $release ) {
+//            if ( isset( $release['tag_name'] ) ) {
+//                return str_replace( 'v', '', $release['tag_name'] );
+//            }
+//        }
     }
 
     /**
@@ -155,6 +159,7 @@ class Updater {
             $data = json_decode( $request['body']['themes'] );
             unset( $data->themes->{$this->slug} );
             $request['body']['themes'] = wp_json_encode( $data );
+//            dd($request);
         }
         return $request;
     }
@@ -168,6 +173,7 @@ class Updater {
      * @return object
      */
     public function update_themes( $transient ) {
+//        dd($transient);
         if ( isset( $transient->checked ) ) {
             $current_version = $this->ver;
 
@@ -183,11 +189,3 @@ class Updater {
         return $transient;
     }
 }
-
-new Updater([
-    'name' => WP_THEME_BOILERPLATE_NAME,
-    'repo' => WP_THEME_BOILERPLATE_GITHUB_REPO,
-    'slug' => WP_THEME_BOILERPLATE_SLUG,
-    'url'  => 'https://brianclogan.com',
-    'ver'  => WP_THEME_BOILERPLATE_VERSION,
-]);

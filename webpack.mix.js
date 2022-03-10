@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+require('laravel-mix-zip');
 let path = require('path');
 
 mix.setResourceRoot('../');
@@ -26,6 +27,7 @@ mix.postCss("resources/css/editor-style.css", "css");
 // });
 
 if (mix.inProduction()) {
+    mix.zip(['css', 'js', 'images', 'parts', 'templates', 'styles', 'includes'], ['functions.php', 'index.php', 'README.md', 'CHANGELOG.md', 'style.css', 'theme.json', 'screenshot.png', 'LICENSE'], 'wp-theme-boilerplate.zip');
     mix.version();
 } else {
     Mix.manifest.refresh = _ => void 0
