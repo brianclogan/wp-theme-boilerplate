@@ -1,13 +1,13 @@
 /*
-Theme Name: Boilerplate
-Theme URI: https://github.com/jeffreyvr/boilerplate
-Author: Jeffrey van Rossum
-Author URI: https://vanrossum.dev
-Description: A WordPress theme made with TailPress.
+Theme Name: WP Theme Boilerplate
+Theme URI: https://github.com/brianclogan/wp-theme-boilerplate
+Author: Brian Logan
+Author URI: https://brianclogan.com
+Description: A WordPress theme made that is FSE.
 Version: 0.2.1
 License: MIT
-License URI: https://github.com/jeffreyvr/boilerplate/blob/master/LICENSE
-Text Domain: boilerplate
+License URI: https://github.com/brianclogan/wp-theme-boilerplate/blob/master/LICENSE
+Text Domain: boilerplate, fse, full site editor, editor
 */
 
 body {
