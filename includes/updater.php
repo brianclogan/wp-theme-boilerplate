@@ -117,12 +117,13 @@ class Updater {
         if ( ! $this->response ) {
             return;
         }
-        dd($this->response);
-        foreach ( $this->response as $release ) {
-            if ( isset( $release['assets'] ) && isset( $release['assets'][0] ) && isset( $release['assets'][0]['browser_download_url'] ) ) {
-                return $release['assets'][0]['browser_download_url'];
-            }
-        }
+        return $this->response[0]['zipball_url'];
+//        dd($this->response);
+//        foreach ( $this->response as $release ) {
+//            if ( isset( $release['assets'] ) && isset( $release['assets'][0] ) && isset( $release['assets'][0]['browser_download_url'] ) ) {
+//                return $release['assets'][0]['browser_download_url'];
+//            }
+//        }
     }
 
     /**
@@ -136,11 +137,12 @@ class Updater {
         if ( ! $this->response ) {
             return;
         }
-        foreach ( $this->response as $release ) {
-            if ( isset( $release['tag_name'] ) ) {
-                return str_replace( 'v', '', $release['tag_name'] );
-            }
-        }
+        return str_replace( 'v', '', $this->response[0]['tag_name'] );
+//        foreach ( $this->response as $release ) {
+//            if ( isset( $release['tag_name'] ) ) {
+//                return str_replace( 'v', '', $release['tag_name'] );
+//            }
+//        }
     }
 
     /**
