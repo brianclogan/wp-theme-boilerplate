@@ -36,4 +36,6 @@ add_action('wp_enqueue_scripts', function () {
  * Register Cusomizer and the Updater
  */
 require_once 'includes/customizer.php';
-require_once 'includes/updater.php';
+add_action( 'after_setup_theme', function() {
+    get_template_part( 'includes/updater.php' );
+});
