@@ -7,7 +7,7 @@ define('WP_THEME_BOILERPLATE_GITHUB_REPO', 'brianclogan/wp-theme-boilerplate');
 define('WP_THEME_BOILERPLATE_GITHUB_REPO_URL', 'https://github.com/brianclogan/wp-theme-boilerplate');
 define('WP_THEME_BOILERPLATE_SLUG', 'wp-theme-boilerplate');
 define('WP_THEME_BOILERPLATE_NAME', 'WP Theme Boilerplate');
-define('WP_THEME_BOILERPLATE_VERSION', '0.3.1');
+define('WP_THEME_BOILERPLATE_VERSION', '0.3.2');
 
 /**
  * Setup the theme.
