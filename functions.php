@@ -2,7 +2,7 @@
 /**
  * Setup the current version of the theme here along with the style.css version
  */
-define('WP_THEME_BOILERPLATE_VERSION', '0.2.5');
+define('WP_THEME_BOILERPLATE_VERSION', '0.3.0');
 
 /**
  * Setup the rest of the defines here that are used throughout the theme.
